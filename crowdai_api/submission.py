@@ -25,6 +25,7 @@ class CrowdAISubmission:
                  api_key=False,
                  auth_token=False,
                  challenge_id=False,
+                 debug_submission=False,
                  base_url="https://www.aicrowd.com/api"):
         self.score = score
         self.score_secondary = score_secondary
@@ -40,6 +41,7 @@ class CrowdAISubmission:
         self.auth_token = auth_token
         self.challenge_id = challenge_id
         self.round_id = False
+        self.debug_submission = debug_submission
         self.base_url = base_url
         self.raw_response = {}
 
@@ -61,6 +63,7 @@ class CrowdAISubmission:
         if self.round_id:
             _object["challenge_round_id"] = self.round_id
         _object["api_key"] = self.api_key
+        _object["debug_submission"] = self.debug_submission
         if self.score is not False:
             _object["score"] = self.score
             if self.score_secondary is False:
